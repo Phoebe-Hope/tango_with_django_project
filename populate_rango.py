@@ -16,27 +16,27 @@ def populate():
 
     python_pages = [
         {'title': 'Official Python Tutorial',
-         'url': 'http://docs.python.org/3/tutorial/'},
+         'url': 'http://docs.python.org/3/tutorial/', 'views':16},
         {'title': 'How to Think like a Computer Scientist',
-         'url': 'http://www.greenteapress.com/thinkpython/'},
+         'url': 'http://www.greenteapress.com/thinkpython/', 'views':45},
         {'title':'Learn Python in 10 Minutes',
-          'url':'http://www.korokithakis.net/tutorials/python/'},
+          'url':'http://www.korokithakis.net/tutorials/python/', 'views':11},
     ]
 
     django_pages = [
         {'title':'Official Django Tutorial',
-          'url':'https://docs.djangoproject.com/en/2.1/intro/tutorial01/'},
+          'url':'https://docs.djangoproject.com/en/2.1/intro/tutorial01/','views':3},
         {'title':'Django Rocks',
-         'url':'http://www.djangorocks.com/'},
+         'url':'http://www.djangorocks.com/','views':7},
         {'title':'How to Tango with Django',
-          'url':'http://www.tangowithdjango.com/'}
+          'url':'http://www.tangowithdjango.com/','views':88}
     ]
 
     other_pages = [
         {'title':'Bottle',
-          'url':'http://bottlepy.org/docs/dev/'},
+          'url':'http://bottlepy.org/docs/dev/', 'views':5},
          {'title':'Flask',
-          'url':'http://flask.pocoo.org'}
+          'url':'http://flask.pocoo.org','views':8}
     ]
 
     cats = {'Python': {'pages': python_pages, 'views': 128, 'likes': 64  },
@@ -47,7 +47,7 @@ def populate():
     for cat, cat_data in cats.items():
         cat_obj = add_cat(name=cat, views=cat_data['views'], likes=cat_data['likes'])
         for page in cat_data['pages']:
-            add_page(cat=cat_obj, title=page['title'], url=page['url'])
+            add_page(cat=cat_obj, title=page['title'], url=page['url'], views=page['views'])
 
     #print out the categories we have added
     for c in Category.objects.all():
