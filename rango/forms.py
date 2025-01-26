@@ -2,7 +2,7 @@ from django import forms
 from rango.models import Page, Category
 
 class CategoryForm(forms.ModelForm):
-    name = forms.CharField(max_length=128,
+    name = forms.CharField(max_length=Category.NAME_MAX_LENGTH,
                            help_text="Please enter the category name.")
     views = forms.IntegerField(widget=forms.HiddenInput, initial=0)
     likes = forms.IntegerField(widget=forms.HiddenInput, initial=0)
@@ -16,7 +16,7 @@ class CategoryForm(forms.ModelForm):
 
 
 class PageForm(forms.ModelForm):
-    title = forms.CharField(max_length=128,
+    title = forms.CharField(max_length=Page.TITLE_MAX_LENGTH,
                             help_text="Please enter the title of the page.")
     url = forms.URLField(max_length=200,
                          help_text="Please enter the URL of the page.")
@@ -28,7 +28,7 @@ class PageForm(forms.ModelForm):
         #hide foreign key by excluding the category field from the form
         exclude = ('category',)
 
-'''
+
     def clean(self):
         cleaned_data = self.cleaned_data
         url = cleaned_data.get('url')
@@ -40,4 +40,4 @@ class PageForm(forms.ModelForm):
 
         return cleaned_data
         
-'''
+
