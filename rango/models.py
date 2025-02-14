@@ -2,8 +2,6 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.template.defaultfilters import slugify
 
-# Create your models here.
-
 class Category(models.Model):
     NAME_MAX_LENGTH = 128
 
